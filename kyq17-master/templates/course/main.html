@@ -1,0 +1,118 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Lacquer&display=swap" rel="stylesheet">
+
+  <style>
+
+    .card-body{
+      padding: 0.5rem;
+    }
+    .card{
+      background-color: #fff;
+      border: 1px solid rgba(0,0,0, .125);
+      border-radius:0;
+    }
+    .cardSet1{
+      background-color:#669999;
+    }
+    .cardSet2{
+      background-color:#cc6666;
+    }
+    h3.card-title{
+      font-size:1.5rem;
+    }
+    h5.card-subtitle{
+      font-size:1.2rem;
+    }
+    p.card-text{
+      padding-bottom:0.8rem;
+      line-height:1.2rem;
+    }
+
+  </style>
+  <link rel="icon" type="image/png" href="{% static 'image/logo.png' %}">
+        <title>KYQ</title>
+
+</head>
+<body>
+
+         
+
+
+  <br>
+  <br>
+  <div class="container">
+  <div class="row">
+
+      <div class="w-100"></div>
+    <div class="col">
+      
+ 
+  <h1 class="display-1">Hello.</h1>
+  <h2>
+    My name is Brian Kim.
+  </h>
+  <br><br>
+  <p class="lead" style="line-height: 1.4;">
+    I am a software engineering student at <a href="https://www.youtube.com/watch?v=cc5vN2XReWs" target="_blank">McGill University</a>. I enjoy creating side projects outside of my working/school life. If you &#x2764 to make things or break things like I do, feel free to send me a <a href="{% url 'msg' %}" target="_blank">message</a>. who knows what we can do together&#x1F525 
+    
+  </p>
+    <p class="lead" style="line-height: 1.4;">
+    Hmm interesting things  about me: I lived in Seoul, Manila, Calgary and currently living in Montreal. I was in <a href="https://en.wikipedia.org/wiki/Republic_of_Korea_Army_Special_Warfare_Command" target="_blank">special forces</a> from 2016 to 2018. And I'm a huge supporter of Chelsea F.C.&#x26BD  
+  </p>
+
+
+    </div>
+    <div class="col">
+      <div class="container mt-5">
+        <h2 class="mb-5 text-center text-white">hello testing</h2>
+        <div class="card-deck">
+        <div  class="card cardSet1 text-white">
+          <div class="card-body">
+            <a href="{% url 'course_home' %}" >
+          <img src="https://images.unsplash.com/photo-1564934304050-e9bb87a29c13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="img-fluid">
+              </a>
+      <h3 class="card-title mt-2"><a href="{% url 'course_home' %}" style="color:white;">/Courses</a></h3>
+        <h5 class="card-subtitle">interested in improving programming?</h5>
+        <p class="card-text mt-3">I go over coding assignments/problems</p>
+      </div>
+      </div>
+
+          <div  class="card cardSet2 text-white">
+                      <div class="card-body">
+
+          <img src="https://images.unsplash.com/photo-1564934304050-e9bb87a29c13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="img-fluid">
+
+        <h3 class="card-title mt-2">/English</h3>
+        <h5 class="card-subtitle">interested in improving English?</h5>
+        <p class="card-text mt-3">not ready yet</p>
+
+      </div>
+
+      </div>
+
+
+
+   
+    </div>
+</div>
+
+
+
+  </div>
+
+ <hr>
+</body>
+</html>

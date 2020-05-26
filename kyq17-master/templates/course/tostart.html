@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lacquer&display=swap" rel="stylesheet">
+
+
+<style>
+  body{
+    background-color:#0F83CD;
+  }
+ 
+   
+</style>  
+  <link rel="icon" type="image/png" href="{% static 'image/logo.png' %}">
+        <title>KYQ-Courses/startHere</title>
+</head>
+
+<body>
+
+
+  
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+            <br><br><br>
+            <h2 class="post-title" style="color:#FFFFFF;">
+              Hi! Welcome to /Courses
+            </h2>
+            <br>
+            <h3 class="lead" style="color:#FFFFFF;">
+             Have you ever wondered if you can still do the assignemnts that made you &#x1F92E in your first year? &#x1F621 forgetting everything after finishing exams? want to &#x1F4BE what you studied for hours and hours?  
+            </h3>
+            <br>
+              <h3 class="lead" style="color:#FFFFFF;">
+             I built KYQ/courses for three reasons. to see if I can still solve the problems without any help&#x1F914 to improve my coding&#x1F91E And lastly to preserve my school work
+            </h3>
+            <br>
+          <p class="lead" style="color:#FFFFFF;">
+            So I guess this web is more for me than others&#x1F61B But still I would be so happy if others can benefit from what I've made.
+           </p>
+          <p class="lead" style="color:#FFFFFF;">
+            Here's a guideline how you can follow the contents on <a href="{% url 'course_home' %}"  style=" text-decoration: none; color: white;background-color: rgba(79,192,141,0.5);" target="_blank">/Courses</a><br> I know I passed the assignments posted here thanks to many TAs and friends&#x1F64F. if you need my help or see any error on my contents, please &nbsp<a href="{% url 'msg' %}" style=" text-decoration: none; color: white;background-color: rgba(79,192,141,0.5);"target="_blank"> message me</a>
+                        </p>
+<br>
+ <div class="container">
+  <div class="row">
+
+    <div class="col">
+            <figure class="figure">
+  <img class="img-fluid img-thumbnail float-left" src="{% static 'image/fc.png' %}">
+  <figcaption class="figure-caption text-right" style="color:#FFFFFF; font-family: 'Rubik', sans-serif;
+">zoom in or do "open image in new tab" </figcaption>
+
+ 
+</figure>
+
+
+       
+          
+        </div>
+  <div class="col">
+      <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col" style="color:#FFFFFF; font-family: 'Lacquer', sans-serif;"><center>
+Courses
+</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for course in course %}
+    <tr>
+      <td style="color:#FFFFFF;"><a href="{% url 'course_detail' slug=course.slug %}" style="text-decoration: none; color:#FFFFFF; font-family: 'Lacquer', sans-serif;
+"><center>{{course.name}}</center></a>
+</td>
+   
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+
+
+      </div>
+    </div>
+</div>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

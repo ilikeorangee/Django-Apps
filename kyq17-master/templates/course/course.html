@@ -1,0 +1,158 @@
+{% extends 'course/base.html' %}
+{% load static %}
+{% block title %}
+<title>KYQ-Courses/{{course}}</title>
+{% endblock %}
+
+
+{% block content %}
+    <center>
+    {% for con in content %}
+<div class="btn-group" role="group" aria-label="Basic example">
+  <h5>
+<span class="badge badge-default"> <a href="{% url 'content_detail' slug=con.slug %}"onMouseOver="this.style.color='#DE98AB'"onMouseOut="this.style.color='#DE98AB'" style="text-decoration:none">
+{{ con.title }}
+</a></span>
+</h5>
+
+
+</div>
+
+{% endfor %}
+</center>
+<hr>
+<br>
+
+       <article class="media content-section">
+                    <img class="img-thumbnail language-img" src='{{course.image.url}}' style="  height: 240px;
+  width: 180px;
+  margin-right: 16px;">
+            <div class="media-body">
+            <div class="article-metadata">
+              <small class="text-muted">{{course.language}} | {{course.date}}</small>
+            </div>
+            <h5>{{course.name}}</h5>
+                          <span style="font-family: 'Lacquer', sans-serif;
+"><a href="{{course.source}}" target="_blank">course link</a> <div class="progress">
+  <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="{{course.rate}} "
+  aria-valuemin="0" aria-valuemax="100" style="width:{{course.rate}}%">
+      {{course.rate}}% much fun    
+      </div>
+</div></span>
+<p>{{course.description}}
+</p>
+
+        </article>
+
+
+
+<br>
+<div class="row">
+  {% for con in content %}
+
+    <div class="col-6 card" style="padding:20px">
+      <a href="{% url 'content_detail' slug=con.slug %}">
+        <img class="card-img-top" src='{{con.image.url}}'>
+      </a>
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href="{% url 'content_detail' slug=con.slug %}">{{ con.title }}</a>
+        </h5>
+        <p class="card-text">{{ con.description |slice:":100" }}...</p>
+      </div>
+
+      <div class="card-footer">
+        <small class="text-muted">
+         
+          <span class="h6">
+            <a href="{% url 'content_detail' slug=con.slug %}">{{ con.date}} </a>
+          </span>
+        </small>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+
+<br>
+
+ {% if paginator %}
+
+      {% if content.has_previous %}
+        <a class="btn btn-outline-primary mb-4" href="?page=1">First</a>
+        <a class="btn btn-outline-primary mb-4" href="?page={{ content.previous_page_number }}">Previous</a>
+      {% endif %}
+
+      {% for num in content.paginator.page_range %}
+        {% if content.number == num %}
+          <a class="btn btn-primary mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > content.number|add:'-3' and num < content.number|add:'3' %}
+          <a class="btn btn-outline-primary mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if content.has_next %}
+        <a class="btn btn-outline-primary mb-4" href="?page={{ content.next_page_number }}">Next</a>
+        <a class="btn btn-outline-primary mb-4" href="?page={{ content.paginator.num_pages }}">Last</a>
+      {% endif %}
+
+    {% endif %}
+
+{% endblock content %}
+
+{% block sidebar %}
+
+      <div class="content-section">
+            <h3>Languages</h3>
+            <p class='text-muted' style="font-family: 'Saira Stencil One', cursive;" >Languages we offer here</p>
+            {% for lang in all_lang %} 
+              <ul class="list-group">
+
+                <li class="list-group-item list-group-item-light"><a href="{% url 'language_detail' slug=lang.slug %}" class="primary">
+                  {{lang.name}}</a>
+              </ul>
+              {% endfor %}
+            </p>
+          </div>
+
+
+              <div class="content-section">
+            <h3>Courses</h3>
+            <p class='text-muted'  style="font-family: 'Saira Stencil One', cursive;">courses we offer here</p>
+            {% for course in all_course %} 
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light"><a href="{% url 'course_detail' slug=course.slug %}" class="primary">
+                  {{course.name}}</a></li>
+              </ul>
+              {% endfor %}
+            </p>
+          </div>
+
+           <div class="content-section">
+            <h3>About</h3>
+            <p class='text-muted' style="font-family: 'Saira Stencil One', cursive;">
+              Grandescunt Aucta Labore
+              <br>
+                                        By work, all things increase and grow
+            </p>
+                        
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light"><a href="#">About Me</a></li>
+                <li class="list-group-item list-group-item-light"><a href="{% url 'tostart' %}" >About /Courses</a></li>
+               <li class="list-group-item list-group-item-light"><a href="#">About /Fashion</a></li>
+
+                <li class="list-group-item list-group-item-light">
+                  <span class="social-media">
+                  <a href="#" class="fa fa-facebook" style="padding-right:5px";></a>
+                  <a href="#" class="fa fa-twitter" style="padding-right:5px";></a>
+                  <a href="#" class="fa fa-instagram" style="padding-right:5px";></a>
+                  <a href="#" class="fa fa-github"style="padding-right:5px";></a>
+                  <a href="#" class="fa fa-envelope"></a>  
+                </span>
+</li>
+              </ul>
+            </p>
+          </div>
+          
+{% endblock sidebar %}
+

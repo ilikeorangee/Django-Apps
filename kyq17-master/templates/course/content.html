@@ -1,0 +1,164 @@
+{% extends 'course/base.html' %}
+{% load static %}
+{% load embed_video_tags %}
+{% load disqus_tags %}
+
+{% block title %}
+<title>KYQ-Courses/{{content.title}}</title>
+
+{% endblock %}
+
+
+{% block content %}
+  <article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ content.image.url }}">
+    <div class="media-body">
+      <div class="article-metadata">
+        <small class="text-muted">{{ content.date }}</small>
+          <div>
+            <span><a class="btn btn-primary btn-sm mt-1 mb-1" href="#">{{content.title}}</a>
+            <span><a class="btn btn-primary btn-sm mt-1 mb-1" href="#">{{content.course.name}}</a>
+            <span><a class="btn btn-primary btn-sm mt-1 mb-1" href="#">{{content.language.name}}</a>
+
+            </span>
+          </div>
+
+      </div>
+      <p>
+        <br>
+        <span>
+        {{content.summary_question}}
+
+
+
+
+
+    </span>
+
+              <div class="embed-responsive embed-responsive-1by1">
+
+
+    {% video content.video as my_video %}
+    {% video my_video "small" %}
+  {% endvideo %}
+  <br>
+  </div>
+  <div class="d-flex bd-highlight">
+  <div class="p-2 flex-fill bd-highlight"><a href="{{content.github}}" target="_blank">The code can be found here</a>
+</div>
+  <div class="p-2 flex-fill bd-highlight"><a href="{{content.pdf}}" target="_blank">Full pdf</a>
+</div>
+  <div class="p-2 flex-fill bd-highlight"><a href="{{content.paper_work}}" target="_blank">See the paper work for this problem</a>
+</div>
+
+</div>
+</p>
+</div>
+</article>
+
+
+
+
+<br>
+
+    <article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+      <h5>Review</h5>
+      </div>
+           <p>
+          {{content.review}}          
+
+        </p>
+
+  </article>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://www-kyq17-com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+
+  <!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" style="color:#FAFAFA">you can't see me son!!
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+      {% endblock content %}
+
+{% block sidebar %}
+
+      <div class="content-section">
+            <h3>Languages</h3>
+            <p class='text-muted' style="font-family: 'Saira Stencil One', cursive;" >Languages we offer here</p>
+            {% for lang in all_lang %} 
+              <ul class="list-group">
+
+                <li class="list-group-item list-group-item-light"><a href="{% url 'language_detail' slug=lang.slug %}" class="primary">
+                  {{lang.name}}</a>
+              </ul>
+              {% endfor %}
+            </p>
+          </div>
+
+
+              <div class="content-section">
+            <h3>Courses</h3>
+            <p class='text-muted'  style="font-family: 'Saira Stencil One', cursive;">courses we offer here</p>
+            {% for course in all_course %} 
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light"><a href="{% url 'course_detail' slug=course.slug %}" class="primary">
+                  {{course.name}}</a></li>
+              </ul>
+              {% endfor %}
+            </p>
+          </div>
+
+           <div class="content-section">
+            <h3>About</h3>
+            <p class='text-muted' style="font-family: 'Saira Stencil One', cursive;">
+              Grandescunt Aucta Labore
+              <br>
+                                        By work, all things increase and grow
+            </p>
+                        
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light"><a href="#">About Me</a></li>
+                <li class="list-group-item list-group-item-light"><a href="{% url 'tostart' %}" >About /Courses</a></li>
+               <li class="list-group-item list-group-item-light"><a href="#">About /Fashion</a></li>
+
+                <li class="list-group-item list-group-item-light">
+                  <span class="social-media">
+                  <a href="#" class="fa fa-facebook" style="padding-right:5px";></a>
+                  <a href="#" class="fa fa-twitter" style="padding-right:5px";></a>
+                  <a href="#" class="fa fa-instagram" style="padding-right:5px";></a>
+                  <a href="#" class="fa fa-github"style="padding-right:5px";></a>
+                  <a href="#" class="fa fa-envelope"></a>  
+                </span>
+</li>
+              </ul>
+            </p>
+          </div>
+          
+{% endblock sidebar %}
