@@ -1,0 +1,49 @@
+everything is divided into apps in django 
+within those apps there are  pages, views, datas
+it's way to organize 
+add apps to settings 
+convention i use
+personal:mismatch pages collected 
+
+i always build views first- try to see what I want to build looks alike 
+
+template inside src directory-base.html
+need to tell django where all the templates are 
+
+inside settings.py, base dir -> point to src directory 
+and inside templates I'm saying join the base directory with the template name templates
+
+view-handles the logic(html- look)(view-backend)
+
+class based -whole package view but confusing 
+modify urls.py 
+
+
+content-block: no need to write duplicate html
+app -> templates -> again app because it will help django to find templates for the certain app: it's set this way in settings.py
+so in views.py it will be templalte/personal/home.html but django takes care of template part so it's just personal/home
+
+now using base.html extends that 
+
+
+super user-django built in 
+apply changes to database 
+
+groups/users are basically database table 
+
+Models: model the data in db, denote what table goes
+query data into view and display that on template
+
+create models -> cofigure using console->update admin.py 
+update views.py -> update template
+
+user-use for username 
+we will create a custom user that will use an email  
+create a new app account
+
+override the defalut one with custom one in settings. py
+
+AUTH_USER_MODEL = 'account.Account'
+
+we built in custom model
+we will make a custom user registration
